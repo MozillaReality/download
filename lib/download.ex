@@ -78,7 +78,7 @@ defmodule Download do
 
   alias HTTPoison.{AsyncHeaders, AsyncStatus, AsyncChunk, AsyncEnd}
 
-  @wait_timeout 5000
+  @wait_timeout 30000
 
   @doc false
   def do_download(opts) do
