@@ -62,7 +62,6 @@ defmodule Download do
     request =
       HTTPoison.get(url, %{},
         stream_to: response_parsing_pid,
-        timeout: @wait_timeout,
         connect_timeout: @wait_timeout,
         recv_timeout: @wait_timeout
       )
