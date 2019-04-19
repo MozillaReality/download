@@ -28,7 +28,10 @@ defmodule Download do
 
   """
 
-  @default_max_file_size 1024 * 1024 * 1000 # 1 GB
+  # 1 GB
+  @default_max_file_size 1024 * 1024 * 1000
+
+  @wait_timeout 30000
 
   def from(url, opts \\ []) do
     max_file_size = Keyword.get(opts, :max_file_size, @default_max_file_size)
@@ -82,8 +85,6 @@ defmodule Download do
   end
 
   alias HTTPoison.{AsyncHeaders, AsyncStatus, AsyncChunk, AsyncEnd}
-
-  @wait_timeout 30000
 
   @doc false
   def do_download(opts) do
