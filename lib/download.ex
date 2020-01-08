@@ -81,6 +81,8 @@ defmodule Download do
 
   defp wait_for_download() do
     receive do
+      # https://github.com/edgurgel/httpoison/issues/375
+      { :ssl_closed, _info } -> wait_for_download()
       reason -> reason
     end
   end
